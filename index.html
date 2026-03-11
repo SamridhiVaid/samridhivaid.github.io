@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samridhi Vaid</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fdfdfc;
+      --text: #1c1917;
+      --text-secondary: #78716c;
+      --text-tertiary: #a8a29e;
+      --accent: #b45309;
+      --accent-hover: #92400e;
+      --border: #e7e5e4;
+      --font-serif: 'Newsreader', Georgia, serif;
+      --font-sans: 'Source Sans 3', -apple-system, sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection {
+      background: var(--accent);
+      color: white;
+    }
+
+    a {
+      color: var(--text);
+      text-decoration-color: var(--border);
+      text-underline-offset: 3px;
+      transition: text-decoration-color 0.2s ease;
+    }
+
+    a:hover {
+      text-decoration-color: var(--text);
+    }
+
+    .container {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ---- HEADER ---- */
+    header {
+      padding: 3rem 0 0;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      padding-bottom: 3rem;
+    }
+
+    .header-name {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 500;
+      text-decoration: none;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+
+    .header-links {
+      display: flex;
+      gap: 1.25rem;
+      margin-left: auto;
+    }
+
+    .header-links a {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .header-links a:hover {
+      color: var(--text);
+    }
+
+    /* ---- INTRO ---- */
+    .intro {
+      padding-bottom: 4rem;
+    }
+
+    .intro p {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      line-height: 1.65;
+      font-weight: 400;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+
+    .intro p .muted {
+      color: var(--text-secondary);
+    }
+
+    .intro-links {
+      margin-top: 1.25rem;
+      display: flex;
+      gap: 1.25rem;
+    }
+
+    .intro-links a {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: color 0.2s;
+    }
+
+    .intro-links a:hover {
+      color: var(--text);
+    }
+
+    .intro-links a svg {
+      width: 13px;
+      height: 13px;
+      opacity: 0.5;
+    }
+
+    /* ---- SECTIONS ---- */
+    .section {
+      padding: 2.5rem 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-heading {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--text-tertiary);
+      text-transform: lowercase;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ---- WORK ---- */
+    .work-item {
+      margin-bottom: 2rem;
+    }
+
+    .work-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .work-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.2rem;
+    }
+
+    .work-role {
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .work-date {
+      font-size: 0.82rem;
+      color: var(--text-tertiary);
+      white-space: nowrap;
+      margin-left: 1rem;
+    }
+
+    .work-org {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.4rem;
+    }
+
+    .work-desc {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    /* ---- PROJECTS ---- */
+    .project-item {
+      margin-bottom: 1.5rem;
+    }
+
+    .project-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .project-name {
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .project-name a {
+      text-decoration-color: var(--border);
+    }
+
+    .project-name a:hover {
+      text-decoration-color: var(--text);
+    }
+
+    .project-tag {
+      font-size: 0.78rem;
+      color: var(--text-tertiary);
+      font-weight: 400;
+    }
+
+    .project-desc {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-top: 0.15rem;
+    }
+
+    /* ---- READING ---- */
+    .book-item {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+
+    .book-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .book-title-text {
+      font-family: var(--font-serif);
+      font-size: 0.95rem;
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .book-author-text {
+      font-size: 0.82rem;
+      color: var(--text-tertiary);
+    }
+
+    .book-now {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+
+    .reading-more {
+      margin-top: 1rem;
+      font-size: 0.82rem;
+      color: var(--text-tertiary);
+    }
+
+    .reading-more a {
+      color: var(--text-secondary);
+      text-decoration-color: var(--border);
+    }
+
+    /* ---- SKILLS ---- */
+    .skills-list {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    .skills-category {
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    /* ---- FOOTER ---- */
+    footer {
+      padding: 3rem 0;
+      border-top: 1px solid var(--border);
+      margin-top: 0.5rem;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-copy {
+      font-size: 0.78rem;
+      color: var(--text-tertiary);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.25rem;
+    }
+
+    .footer-links a {
+      font-size: 0.82rem;
+      color: var(--text-tertiary);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
+    }
+
+    /* ---- ANIMATIONS ---- */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(8px);
+      animation: fadeIn 0.6s ease forwards;
+    }
+
+    .fade-in-1 { animation-delay: 0.05s; }
+    .fade-in-2 { animation-delay: 0.1s; }
+    .fade-in-3 { animation-delay: 0.15s; }
+    .fade-in-4 { animation-delay: 0.2s; }
+    .fade-in-5 { animation-delay: 0.25s; }
+
+    @keyframes fadeIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 600px) {
+      .work-header {
+        flex-direction: column;
+      }
+
+      .work-date {
+        margin-left: 0;
+      }
+
+      .header-links {
+        gap: 0.85rem;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- HEADER -->
+    <header>
+      <div class="header-nav fade-in fade-in-1">
+        <a href="#" class="header-name">Samridhi Vaid</a>
+        <div class="header-links">
+          <a href="https://github.com/SamridhiVaid" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/samridhivaid/" target="_blank">LinkedIn</a>
+          <a href="https://scholar.google.com/citations?user=x8fot_QAAAAJ&hl=en" target="_blank">Scholar</a>
+          <a href="mailto:samridhivaid@gmail.com">Email</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- INTRO -->
+    <div class="intro fade-in fade-in-2">
+      <p>
+        Hi, I'm Samridhi &mdash; a machine learning engineer. I build end-to-end ML systems, from
+        model training and evaluation to cloud deployment and CI/CD.
+        <span class="muted">My work spans multimodal LLMs, agentic systems, and RAG pipelines &mdash;
+        most recently an AI scribe used by 200+ physicians across 105 facilities.
+        4+ years across ML/AI and software engineering.</span>
+      </p>
+      <div class="intro-links">
+        <a href="https://github.com/SamridhiVaid" target="_blank">
+          GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/samridhivaid/" target="_blank">
+          LinkedIn <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </a>
+        <a href="https://www.goodreads.com/user/show/42779306-samridhi" target="_blank">
+          Goodreads <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- WORK -->
+    <div class="section reveal" id="work">
+      <div class="section-heading">/work</div>
+
+      <div class="work-item">
+        <div class="work-header">
+          <div class="work-role">Machine Learning Consultant</div>
+          <div class="work-date">2025 &ndash; present</div>
+        </div>
+        <div class="work-org">Alberta Health Services</div>
+        <div class="work-desc">
+          Leading ML/LLM feature design with clinical teams. Building agent-based evaluation
+          pipelines for AI-generated clinical summaries.
+        </div>
+      </div>
+
+      <div class="work-item">
+        <div class="work-header">
+          <div class="work-role">Machine Learning Engineer</div>
+          <div class="work-date">2023 &ndash; present</div>
+        </div>
+        <div class="work-org">Faculty of Medicine & Dentistry, University of Alberta</div>
+        <div class="work-desc">
+          Designed a multimodal AI scribe (Whisper + LLaMA 3.3 70B) serving 200+ physicians.
+          Built RAG agents for clinical knowledge. Deployed on GCP and AWS.
+        </div>
+      </div>
+
+      <div class="work-item">
+        <div class="work-header">
+          <div class="work-role">Machine Learning Consultant</div>
+          <div class="work-date">2022 &ndash; 2023</div>
+        </div>
+        <div class="work-org">Alberta Machine Intelligence Institute (Amii)</div>
+        <div class="work-desc">
+          Consulted with 4 AI startups on ML integration, predictive analytics roadmaps,
+          and lightweight MLOps patterns.
+        </div>
+      </div>
+
+      <div class="work-item">
+        <div class="work-header">
+          <div class="work-role">Software Engineer</div>
+          <div class="work-date">2019 &ndash; 2021</div>
+        </div>
+        <div class="work-org">Samsung Research & Development Institute, Delhi</div>
+        <div class="work-desc">
+          Built automation tools and conformance test suites for global Samsung TV product lines.
+          Reduced QA time by 14%.
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECTS -->
+    <div class="section reveal" id="projects">
+      <div class="section-heading">/projects</div>
+
+      <div class="project-item">
+        <div class="project-name">
+          <a href="https://github.com/phairlab/berta-ai-scribe" target="_blank">Berta AI Scribe</a>
+          <span class="project-tag">&middot; Python</span>
+        </div>
+        <div class="project-desc">
+          Multimodal AI medical scribe combining speech recognition and large language models
+          for clinical documentation at scale.
+        </div>
+      </div>
+
+      <div class="project-item">
+        <div class="project-name">
+          <a href="https://github.com/SamridhiVaid/Medical-Predictive-Modelling-using-Transfer-Learning" target="_blank">Medical Predictive Modelling</a>
+          <span class="project-tag">&middot; Python</span>
+        </div>
+        <div class="project-desc">
+          Master's thesis on applying transfer learning techniques to medical predictive modelling.
+        </div>
+      </div>
+    </div>
+
+    <!-- RESEARCH -->
+    <div class="section reveal" id="research">
+      <div class="section-heading">/research</div>
+
+      <div class="project-item">
+        <div class="project-name">
+          <a href="https://openreview.net/pdf?id=t4pWejxMgr" target="_blank">Quality-Diversity Transfer Learning (QDTL)</a>
+          <span class="project-tag">&middot; OpenReview, 2024</span>
+        </div>
+        <div class="project-desc">
+          A novel transfer learning approach based on neuroevolution for small-dataset medical
+          prediction problems. Combines quality-diversity optimization, architecture search,
+          and conceptual expansion to outperform standard transfer learning baselines.
+        </div>
+      </div>
+
+      <div class="reading-more">
+        More on <a href="https://scholar.google.com/citations?user=x8fot_QAAAAJ&hl=en" target="_blank">Google Scholar</a>
+      </div>
+    </div>
+
+    <!-- WRITING -->
+    <div class="section reveal" id="writing">
+      <div class="section-heading">/writing</div>
+
+      <div class="project-item">
+        <div class="project-name">
+          <a href="https://gradientflow.substack.com/p/autonomous-ai-agents-are-changing" target="_blank">Autonomous AI Agents Are Changing Knowledge Work -- Fast</a>
+        </div>
+        <div class="project-desc">
+          Co-authored with Louis Bouchard and Ben Lorica. A deep dive into AI deep research
+          tools, their comparative landscape, and how they're reshaping knowledge work.
+          <span class="project-tag">Gradient Flow, Apr 2025</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- EDUCATION -->
+    <div class="section reveal" id="education">
+      <div class="section-heading">/education</div>
+
+      <div class="work-item">
+        <div class="work-header">
+          <div class="work-role">M.Sc. Computing Science (Thesis)</div>
+          <div class="work-date">2021 &ndash; 2023</div>
+        </div>
+        <div class="work-org">University of Alberta &middot; GPA 3.80 / 4.0</div>
+      </div>
+    </div>
+
+    <!-- SKILLS -->
+    <div class="section reveal" id="skills">
+      <div class="section-heading">/stack</div>
+      <div class="skills-list">
+        <span class="skills-category">Languages:</span> Python, SQL, JavaScript<br>
+        <span class="skills-category">ML/AI:</span> PyTorch, TensorFlow, scikit-learn, LangChain, Whisper, LLaMA<br>
+        <span class="skills-category">Infra:</span> Docker, AWS (ECS, Bedrock, S3, RDS), GCP (Vertex AI), FastAPI<br>
+        <span class="skills-category">Data:</span> Pandas, NumPy, PostgreSQL, Snowflake<br>
+        <span class="skills-category">Frontend:</span> React, Next.js
+      </div>
+    </div>
+
+    <!-- READING -->
+    <div class="section reveal" id="reading">
+      <div class="section-heading">/reading</div>
+
+      <div class="book-item">
+        <span class="book-title-text">I Am That</span>
+        <span class="book-author-text">Nisargadatta Maharaj</span>
+        <span class="book-now">now reading</span>
+      </div>
+
+      <div class="book-item">
+        <span class="book-title-text">The Heart of the Buddha's Teaching</span>
+        <span class="book-author-text">Thich Nhat Hanh</span>
+      </div>
+
+      <div class="book-item">
+        <span class="book-title-text">Meditations</span>
+        <span class="book-author-text">Marcus Aurelius</span>
+      </div>
+
+      <div class="book-item">
+        <span class="book-title-text">The Power of Your Subconscious Mind</span>
+        <span class="book-author-text">Joseph Murphy</span>
+      </div>
+
+      <div class="reading-more">
+        More on <a href="https://www.goodreads.com/user/show/42779306-samridhi" target="_blank">Goodreads</a>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-copy">Samridhi Vaid</div>
+        <div class="footer-links">
+          <a href="https://github.com/SamridhiVaid" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/samridhivaid/" target="_blank">LinkedIn</a>
+          <a href="https://www.goodreads.com/user/show/42779306-samridhi" target="_blank">Goodreads</a>
+          <a href="mailto:samridhivaid@gmail.com">Email</a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

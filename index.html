@@ -355,20 +355,16 @@
       margin-bottom: 0;
     }
 
+    /* Inline flow (not flex) so long titles wrap like text, with a hanging indent past the icon */
     .project-name {
       font-weight: 500;
       font-size: 0.95rem;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      flex-wrap: wrap;
+      position: relative;
+      padding-left: calc(14px + 0.4rem);
     }
 
     .project-name a {
       text-decoration-color: var(--border);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
     }
 
     .project-name a:hover {
@@ -379,6 +375,8 @@
     .project-name a svg.ext {
       width: 12px;
       height: 12px;
+      margin-left: 0.3rem;
+      vertical-align: middle;
       opacity: 0.4;
       transition: opacity 0.2s;
     }
@@ -391,6 +389,7 @@
       font-size: 0.78rem;
       color: var(--text-tertiary);
       font-weight: 400;
+      margin-left: 0.15rem;
     }
 
     .project-desc {
@@ -401,11 +400,13 @@
     }
 
     .project-icon {
+      position: absolute;
+      left: 0;
+      top: calc(0.85em - 7px); /* centre on the first line (line-height 1.7) */
       width: 14px;
       height: 14px;
       color: var(--teal);
       opacity: 0.7;
-      flex-shrink: 0;
     }
 
     /* ---- LINK ICONS ---- */
@@ -719,10 +720,8 @@
         <div class="project-name">
           <svg class="project-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
           <a href="https://github.com/phairlab/berta-ai-scribe" target="_blank" rel="noopener noreferrer">
-            Berta AI Scribe
-            <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-          </a>
-          <span class="project-tag">&middot; Python, Next.js</span>
+            Berta AI Scribe<svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
+          <span class="project-tag">&middot;&nbsp;Python, Next.js</span>
         </div>
         <div class="project-desc">
           Multimodal AI medical scribe combining speech recognition and large language models
@@ -734,41 +733,11 @@
         <div class="project-name">
           <svg class="project-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0112 4.5v15a2.5 2.5 0 01-4.96.44H2.5A2.5 2.5 0 010 17.5v-10A2.5 2.5 0 012.5 5h4.04A2.5 2.5 0 019.5 2z"/><path d="M14.5 2A2.5 2.5 0 0112 4.5v15a2.5 2.5 0 004.96.44h4.54A2.5 2.5 0 0024 17.5v-10A2.5 2.5 0 0021.5 5h-4.04A2.5 2.5 0 0014.5 2z"/></svg>
           <a href="https://github.com/SamridhiVaid/Medical-Predictive-Modelling-using-Transfer-Learning" target="_blank" rel="noopener noreferrer">
-            Medical Predictive Modelling
-            <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-          </a>
-          <span class="project-tag">&middot; Python</span>
+            Medical Predictive Modelling<svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
+          <span class="project-tag">&middot;&nbsp;Python</span>
         </div>
         <div class="project-desc">
           Master's thesis on applying transfer learning techniques to medical predictive modelling.
-        </div>
-      </div>
-
-      <div class="project-item">
-        <div class="project-name">
-          <svg class="project-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-          <a href="https://github.com/SamridhiVaid/Interstellar" target="_blank" rel="noopener noreferrer">
-            InterStellar
-            <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-          </a>
-          <span class="project-tag">&middot; Python</span>
-        </div>
-        <div class="project-desc">
-          Cryptocurrency price prediction app using LSTM neural networks, with a Lumen dashboard for visualizing Stellar price forecasts.
-        </div>
-      </div>
-
-      <div class="project-item">
-        <div class="project-name">
-          <svg class="project-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-          <a href="https://github.com/SamridhiVaid/Footfall" target="_blank" rel="noopener noreferrer">
-            Footfall
-            <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-          </a>
-          <span class="project-tag">&middot; R, Shiny</span>
-        </div>
-        <div class="project-desc">
-          Retail footfall analysis dashboard built with R Shiny. Tracks customer traffic, purchases, and conversions to generate marketing and store design recommendations.
         </div>
       </div>
     </div>
@@ -781,10 +750,8 @@
         <div class="project-name">
           <svg class="project-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--indigo)"><path d="M14.5 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
           <a href="https://medinform.jmir.org/2026/1/e105385" target="_blank" rel="noopener noreferrer">
-            Berta, an Open-Source, Modular AI Scribe for Clinical Documentation: Implementation Report
-            <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-          </a>
-          <span class="project-tag">&middot; JMIR Medical Informatics, 2026</span>
+            Berta: An Open-Source, Modular AI Scribe<svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
+          <span class="project-tag">&middot;&nbsp;JMIR Medical Informatics, 2026</span>
         </div>
         <div class="project-desc">
           An open-source AI scribe platform for clinical documentation, deployed across Alberta Health Services
@@ -798,10 +765,8 @@
         <div class="project-name">
           <svg class="project-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--indigo)"><path d="M14.5 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
           <a href="https://openreview.net/pdf?id=t4pWejxMgr" target="_blank" rel="noopener noreferrer">
-            Quality-Diversity Transfer Learning (QDTL)
-            <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-          </a>
-          <span class="project-tag">&middot; OpenReview, 2024</span>
+            Quality-Diversity Transfer Learning (QDTL)<svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
+          <span class="project-tag">&middot;&nbsp;OpenReview, 2024</span>
         </div>
         <div class="project-desc">
           A novel transfer learning approach based on neuroevolution for small-dataset medical
@@ -823,9 +788,7 @@
         <div class="project-name">
           <svg class="project-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--rose)"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
           <a href="https://gradientflow.substack.com/p/autonomous-ai-agents-are-changing" target="_blank" rel="noopener noreferrer">
-            Autonomous AI Agents Are Changing Knowledge Work -- Fast
-            <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-          </a>
+            Autonomous AI Agents Are Changing Knowledge Work -- Fast<svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
         </div>
         <div class="project-desc">
           Co-authored with Louis Bouchard and Ben Lorica. A deep dive into AI deep research
